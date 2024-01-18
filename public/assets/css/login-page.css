@@ -1,0 +1,182 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html, body {
+    height: 100%;
+}
+
+.maincontainer {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/assets/images/app/bg2.jpg');
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.items {
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.logo{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-image: url(resources/logo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.logo{
+    transition: all linear;
+    animation: rotate 6s linear infinite;
+    color: blue;
+    
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+form input{
+    display: block;
+    padding:12px;
+    border-radius: 12px;
+    margin-top:10px;
+    width:250px;
+    outline: 0px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border:rgba(255, 255, 255, 0.9);
+}
+form .input-container,
+form .password-container,form .cnfrm_password-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+form input[type="input"].user-input,
+form input[type="password"].password-input {
+    display: block;
+    padding: 12px 40px 12px 12px; 
+    border-radius: 12px;
+    width: 100%;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+form i.fas.fa-user,
+form i.fas.fa-lock {
+    color: #555; /* Adjust the color of the icon */
+    position: absolute;
+    right: 10px; /* Adjust the position of the icon */
+    top: 50%;
+    transform: translateY(-50%);
+margin-top: 12px;
+}
+
+.email_input {
+    width: calc(100% - 24px); /* Adjust the total width considering padding and border */
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 20px;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: rgba(255, 255, 255, 0.9);
+}
+.referal_code_input,.number_input {
+    width: calc(100% - 24px); /* Adjust the total width considering padding and border */
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 20px;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: rgba(255, 255, 255, 0.9);
+}
+.btn{
+    display: block;
+    padding:12px;
+    border-radius: 12px;
+    margin-top: 20px;
+    width: 100%; 
+    outline: 0px;
+    border: rgba(255, 255, 255, 0.9);;
+    color: white;
+    font-weight: bold;
+
+    /* background-color: #333; */
+    /* background:linear-gradient(rgba(0,0,0,0.6),#ff004f); */
+    /* background: linear-gradient(rgba(0, 0, 50, 0.6), rgba(0, 0, 50, 0.8)); */
+    /* background: linear-gradient(rgba(50, 0, 50, 0.6), rgba(50, 0, 50, 0.8)); */
+    background: linear-gradient(rgba(0, 0, 50, 0.6), rgba(0, 0, 50, 0.8));
+}
+.keep_in input{
+    display: inline-block;
+    margin-left: -110px;
+    margin-top: -1px;
+    margin-right: 10px;
+}
+.keep_in{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.keep_in_label{
+   margin-left: -120px;
+}
+.forget{
+    margin-top: 5px;
+    margin-left: 50px;
+}
+.forget a{
+    text-decoration: none;
+    color: white
+
+}
+.create_acc{
+    display: inline-block;
+    margin-top: 20px;
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+   
+}
+.create_acc a{
+    text-decoration: none;
+    color: blue;
+}
+.custom_font{
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+
+}
+/* *******************************************************sign un styling****************************** */
+
+/* *****************************************************footer************************************** */
+.footer_contentt{
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 50, 0.6), rgba(0, 0, 50, 0.8));
+}
+
+
+

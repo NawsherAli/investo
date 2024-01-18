@@ -1,0 +1,462 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 80px; 
+    background-color: black;
+}
+header {
+   
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    order: 0; 
+    background-image: url('/resources/logo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+#item2 {
+    order: 1; 
+    display: flex;
+    align-items: center;
+}
+
+#item2 .user-info {
+    margin-right: 10px; 
+}
+
+#item2 .user-image {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background-image: url('/resources/profile.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* *********************************************************second container********************************************************** */
+.second_container{
+    margin-left: 10px;
+    
+    height: 80px;
+    width: 97%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  
+    background:linear-gradient(rgba(0,0,0,0.6),#ff004f);
+    border-radius: 8px;
+}
+
+.account_balance{
+    margin-top:0px;
+}
+#balance{
+    font-size: 1rem;
+    color: white;
+    margin-left: 12px;
+}
+#balance_amount{
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    margin-left: 12px;
+    margin-top: 0px;
+}
+
+/* **************************************************other items**********************************************/
+.otheritems {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 80px;
+    column-gap: 0px;
+    row-gap: 10px;
+}
+
+.item {
+    border: 1px solid #333; /* Add a border for better visibility */
+    width: 95%;
+}
+.item span{
+    color: white;
+    font-size: 0.8rem;
+}
+
+.item p{
+    font-weight: bold;
+    color: white;
+}
+/* ********************** */
+.total_withdraw {
+    background-color: #ff004f;
+    display: flex;
+    flex-direction: column;
+}
+
+.total_withdraw i {
+    padding: 10px;
+    color:#00FF00; 
+}
+#user_withdraw{
+    margin-top: 0px;
+}
+.padding{
+    padding-left: 10px;
+}
+/* *************************** */
+.total_deposit{
+    background-color:#ff004f;
+    display: flex;
+    flex-direction: column;
+}
+.total_deposit i{
+    padding: 10px;
+    color:brown;
+}
+/* ****************************** */
+.total_invest{
+    background-color:rgb(211, 159, 63)  ;
+    display: flex;
+    flex-direction: column;
+}
+.total_invest i{
+    padding: 10px;
+}
+.item i{
+    color: white;
+}
+/* ************************************/
+
+.current_invest{
+    background-color:rgb(211, 159, 63) ;
+    display: flex;
+    flex-direction: column;
+}
+.current_invest i{
+    padding: 10px;
+    color: black;
+}
+/* /* ****************************************other items2**************************************************** */
+.otheritems2{
+    margin-top: 10px;
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 100px;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.item {
+    border-radius: 8px;
+    width: 95%;
+}
+/* ******************************** */
+.current_plan{
+    background-color:rgb(211, 159, 63) ;
+    display: flex;
+    flex-direction: column;
+
+}
+.current_plan i{
+    padding: 10px;
+    font-size: 1.5rem;
+    color: blue;
+}
+/* *************************************/
+.pending_invest{
+    background-color:rgb(211, 159, 63) ;
+    display: flex;
+    flex-direction: column;
+
+}
+.pending_invest i{
+    padding: 10px;
+    font-size: 1.5rem;
+    color: blue;
+}
+/* ***************************************** */
+.pending_withdraw{
+    background-color:rgb(211, 159, 63) ;
+    display: flex;
+    flex-direction: column;
+}
+.pending_withdraw i{
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #ff004f;
+
+}
+/* ********************************************* */
+.referal_earn{
+    background-color:rgb(211, 159, 63) ;
+    display: flex;
+    flex-direction: column;
+
+}
+.referal_earn i{
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #ff004f;
+
+}
+.bg-colour{
+    background-color: black; 
+
+}
+/* *****************************************************logos*************************************************/
+.whatsapp-telegram-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    align-items: flex-end;
+    align-self: flex-end;
+    margin-right: 20px;
+}
+.whatsapp-telegram-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: #25d366; 
+    color: #ff004f;
+    cursor: pointer;
+}
+
+.whatsapp-telegram-icon:hover {
+    color: #128C7E; 
+}
+/* **************************************************link_container*******************************************/
+.link {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.link a {
+    color: white;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    margin-right: 10px; 
+    background: linear-gradient(rgba(0, 0, 50, 0.6), rgba(0, 0, 50, 0.8));
+
+    width: 92%;
+    margin-left: 10px;
+    border-radius: 2px;
+    border: 2px gray;
+}
+
+.copy-button {
+    padding: 8px;
+    background-color: #ff004f; 
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+/* *****************************************footer**************************************************/
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(173, 216, 230, 0.2)
+}
+
+.items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.items li {
+    margin-right: 20px;
+    color: white;
+    margin-left: 12px;
+    font-size: 2rem;
+}
+.items li i{
+    color: white;
+}
+.home_icon a i{
+    color: #ff004f;
+}
+
+
+.items li {
+    text-decoration: none;
+    color: white;
+    font-size: 1remrem;
+    text-align: center;
+    margin-right: 20px; 
+    padding:10px
+}
+.items li span{
+    font-size: 0.8rem;
+}
+
+.items a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* *******************************************sidebar*******************************************/
+
+/* Sidebar Styles */
+.sidebar {
+    display: none;
+    width: 250px;
+    height: 90%;
+    position: fixed;
+    top: 0;
+    left: -250px;
+   
+    background: linear-gradient(rgba(0, 0, 50, 0.6), rgba(0, 0, 50, 0.8));
+    padding-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    margin-bottom: 100px;
+}
+
+#openSidebarBtn {
+    position: fixed;
+    top: 40px;
+    left: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    /* color: white; */
+    color: #ff004f;
+    cursor: pointer;
+    z-index: 2;
+    
+}
+
+#closeSidebarBtn {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    font-size: 40px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    margin-top: 60px;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #555;
+}
+
+#signOutBtn {
+    background-color:#ff004f;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+#signOutBtn:hover {
+    background-color: #c9302c;
+}
+
+@media (max-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0px;
+        padding: 0px;
+        padding-bottom: 100px;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        padding: 2px;
+        width: 100%;
+        height: 50px;
+    }
+    
+    .items ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        margin-top: auto;
+        margin-right: 0px;
+        padding-left: 0px;
+    }
+    
+    .items li {
+        text-decoration: none;
+        text-align: center;
+        margin-bottom: 2px; 
+        margin-right: 0px;
+    }
+    
+    .items li span {
+        font-size: 0.8rem;
+    }
+    
+    .items a {
+        text-decoration: none;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .items li a {
+        color:white;
+        font-size: 1rem;
+    }
+    
+   
+
+}
