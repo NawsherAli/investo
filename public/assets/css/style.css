@@ -1,8 +1,10 @@
  :root{ 
 
  		/*My colors*/
- 		--light-green:#219653;
- 		--lighter-green:#CCFCCB;
+ 		/* rgba(0, 0, 50, 0.6)*/
+ 		/*#ff004f*/
+ 		--light-green:rgba(0, 0, 50, 0.9);
+ 		--lighter-green:rgba(0, 0, 50, 0.3);
  		--white:#ffffff;
  		--black:#1D1D1D;
 

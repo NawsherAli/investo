@@ -1,6 +1,6 @@
-@include('common-components.header')
-@include('common-components.top-nav')
-@include('common-components.admin-side-nav')
+@include('admin.components.header')
+@include('admin.components.top-nav')
+@include('admin.components.admin-side-nav')
 
 <!-- Page Container START -->
     <div class="page-container">

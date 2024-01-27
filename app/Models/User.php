@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
+// class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -22,11 +23,18 @@ class User extends Authenticatable
         'email',
         'password',
         'contact',
-        'e_transfer_no',
         'status',
         'role',
         'is_online',
-        'referal_code' 
+        'referal_code',
+        'refer_by',
+        'total_balance',
+        'current_balance',
+        'level_1',
+        'level_2',
+        'level_3',
+        'plan_password',
+        'referal_invest_earn',
     ];
 
     /**
@@ -37,6 +45,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+
     ];
 
     /**
@@ -49,13 +58,32 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function fundraiser()
+    public function deposits()
     {
-        return $this->hasOne(Fundraiser::class);
+        return $this->hasMany(Deposit::class);
     }
 
-    public function customer()
+    public function withdraws()
     {
-        return $this->hasOne(Customer::class);
+        return $this->hasMany(Withdraw::class);
+    }
+
+     public function invests()
+    {
+        return $this->hasMany(Invest::class);
+    }
+    public function tasks()
+    {
+        return $this->hasMany(UserTask::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isCustomer()
+    {
+        return $this->role === 'customer';
     }
 }

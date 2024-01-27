@@ -3,8 +3,14 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\DriverController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\PlansController;
+use App\Http\Controllers\TasksController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DepositController;
+use App\Http\Controllers\LuckydrawController;
+use App\Http\Controllers\WithdrawController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,141 +21,139 @@ use App\Http\Controllers\CustomerController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//Login page route
 Route::get('/', function () {
     return view('auth.login');
+})->name('/');
+
+////////////////////// ADMIN ROUTES /////////////////////////
+Route::middleware('auth', 'role:admin')->group(function () {
+  //Admin Dashboard Route
+  Route::get('/dashboard', [DashboardController::class, 'adminindex'])->middleware(['auth', 'verified'])->name('admin.dashboard');
+ 
+  //AdminProfile edit routes
+    Route::get('/admin/profile', [ProfileController::class, 'adminEdit'])->name('admin.profile.edit');
+ //AdminProfile update routes
+    Route::patch('/admin/profile', [ProfileController::class, 'adminUpdate'])->name('admin.profile.update');
+
+ //Admin Users Routes
+    Route::get('/users', [UsersController::class, 'index'])->name('admin.users');
+    Route::delete('/users/{id}',[UsersController::class, 'destroy'])->name('user.destroy');
+    Route::get('/user/{id}/edit', [UsersController::class, 'edit'])->name('user.edit');
+    Route::put('/user/{id}', [UsersController::class, 'update'])->name('user.update');
+    //View single user
+    Route::get('/view-user/{id}',[UsersController::class, 'viewUser'])->name('view.user');
+    //search user
+    Route::get('/user/search', [UsersController::class, 'search'])->name('user.search');
+//Admin Plans Routes
+    Route::get('/admin/plans', [PlansController::class, 'index'])->name('admin.plans.index');
+    Route::get('/admin/create/plan', [PlansController::class, 'createPlan'])->name('admin.plans.create_plan');
+    Route::post('/plan/store', [PlansController::class, 'store'])->name('plan.store');
+    Route::delete('/plan/{id}',[PlansController::class, 'destroy'])->name('plan.destroy');
+    Route::get('/plan/{id}/edit', [PlansController::class, 'edit'])->name('plan.edit');
+    Route::put('/plan/{id}', [PlansController::class, 'update'])->name('plan.update');
+     //search plan
+    Route::get('/plan/search', [PlansController::class, 'search'])->name('plan.search');
+
+ //Admin Investments Routes 
+    Route::get('/admin/plans/investments', [PlansController::class, 'investmentIndex'])->name('admin.plans.investments');
+    Route::get('/view-invest/{id}',[PlansController::class, 'viewInvest'])->name('view.invest');
+    Route::put('/invest/{id}', [PlansController::class, 'investUpdate'])->name('invest.update');
+    Route::delete('/invest/{id}',[PlansController::class, 'investDestroy'])->name('invest.destroy');  
+
+//Admin Tasks Route
+    Route::get('/admin/tasks', [TasksController::class, 'index'])->name('admin.tasks.index');
+    Route::get('/admin/create/task', [TasksController::class, 'createTask'])->name('admin.tasks.create');
+    Route::post('/task/store', [TasksController::class, 'store'])->name('task.store');
+    Route::delete('/task/{id}',[TasksController::class, 'destroy'])->name('task.destroy');
+    Route::get('/task/{id}/edit', [TasksController::class, 'edit'])->name('task.edit');
+    Route::put('/task/{id}', [TasksController::class, 'update'])->name('task.update');
+     //search task
+    Route::get('/task/search', [TasksController::class, 'search'])->name('task.search');
+//Admin UserTask  Routes
+    Route::get('/admin/user/tasks', [TasksController::class, 'userTaskindex'])->name('admin.tasks.userTaskIndex');
+    Route::delete('/user/task/{id}',[TasksController::class, 'userTaskDestroy'])->name('usertask.destroy');
+    Route::get('/view-user-task/{id}',[TasksController::class, 'viewuserTask'])->name('view.usertask');
+    Route::put('/update-user-task/{id}', [TasksController::class, 'userTaskUpdate'])->name('usertask.update');
+
+//Admin Deposits Routes
+    Route::get('/admin/deposits', [DepositController::class, 'adminIndex'])->name('admin.deposits.index');
+    Route::get('/view-deposit/{id}',[DepositController::class, 'viewDeposit'])->name('view.deposit');
+    Route::put('/deposit/{id}', [DepositController::class, 'depositUpdate'])->name('deposit.update');
+    Route::delete('/deposit/{id}',[DepositController::class, 'depositDestroy'])->name('deposit.destroy');
+      //search task
+    Route::get('/deposit/search', [DepositController::class, 'search'])->name('deposit.search');
+
+//Admin Help Deposits Routes
+    Route::get('/admin/help/deposits', [DepositController::class, 'adminHelpIndex'])->name('admin.deposits.helpindex');
+    Route::get('/view-helpdeposit/{id}',[DepositController::class, 'viewHelpDeposit'])->name('view.helpdeposit');
+    Route::put('/helpdeposit/{id}', [DepositController::class, 'helpDepositUpdate'])->name('helpdeposit.update');
+    Route::delete('/helpdeposit/{id}',[DepositController::class, 'helpDepositDestroy'])->name('helpdeposit.destroy');
+    Route::get('/helpdeposit/search', [DepositController::class, 'helpsearch'])->name('helpdeposit.search');
+
+//Admin Withdraws Routes
+    Route::get('/admin/withdraw', [WithdrawController::class, 'index'])->name('admin.withdraw.index');
+    Route::get('/view-withdraw/{id}',[WithdrawController::class, 'viewWithdraw'])->name('view.withdraw');
+    Route::put('/withdraw/{id}', [WithdrawController::class, 'withdrawUpdate'])->name('withdraw.update');
+    Route::delete('/delete-withdraw/{id}',[WithdrawController::class, 'withdrawDestroy'])->name('withdraw.destroy');
+
+//Admin Luckydraw Routes
+    Route::get('/admin/luckydraw', [LuckydrawController::class, 'index'])->name('admin.luckydraw.index');
+    Route::get('/view-luckydraw/{id}',[LuckydrawController::class, 'viewLuckydraw'])->name('view.luckydraw');
+    Route::put('/luckydraw/{id}', [LuckydrawController::class, 'luckydrawUpdate'])->name('luckydraw.update');
+    Route::delete('/delete-luckydraw/{id}',[LuckydrawController::class, 'luckydrawDestroy'])->name('luckydraw.destroy');
+
+    Route::get('/luckydraw/search', [LuckydrawController::class, 'luckydrawsearch'])->name('luckydraw.search');
+//Admin Withdraw info Routes
+    Route::get('/admin/withdraw/info', [WithdrawController::class, 'withdrawindex'])->name('admin.withdraw.info.index');
+    Route::get('/admin/create/withdraw/info', [WithdrawController::class, 'createWithdrawInfo'])->name('admin.withdraw.info.create');
+    Route::post('/admin/store/withdraw/info', [WithdrawController::class, 'withdrawInfostore'])->name('withdraw-info.store');
+
+    Route::get('/admin/withdraw/info/{id}/edit', [WithdrawController::class, 'withdrawInfoEdit'])->name('admin.withdraw.info.edit');
+    Route::put('/admin/withdraw/info/update/{id}', [WithdrawController::class, 'withdrawInfoUpdate'])->name('withdraw-info.update');
+    Route::delete('/admin/withdraw/info/delete/{id}',[WithdrawController::class, 'withdrawInfoDestroy'])->name('withdraw-info.destroy');
 });
 
-//Admin dashboard route
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('admin.dashboard');
-
-//Fundraiser dashboard route
-Route::get('/fundraiser/dashboard', function () {
-    return view('fundraiser.dashboard');
-})->middleware(['auth', 'verified'])->name('fundraiser.dashboard');
-
-//Customer dashboard route
-Route::get('/investors/dashboard', function () {
-    return view('customer.dashboard');
-})->middleware(['auth', 'verified'])->name('customer.dashboard');
-
-Route::middleware('auth')->group(function () {
- 
-	//Profile edit routes
-	Route::get('/admin/profile', [ProfileController::class, 'adminEdit'])->name('admin.profile.edit');
-
+//////////////////// CUSTOMER ROUTES //////////////////////////
+Route::middleware('auth', 'role:customer')->group(function () {
+    // Customer Dashboard Route
+    Route::get('/investors/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('investors.dashboard');
+    //Customer Profile Edit Route
     Route::get('/customer/profile', [ProfileController::class, 'customerEdit'])->name('customer.profile.edit');
-    Route::get('/fundraiser/profile', [ProfileController::class, 'fundraiseredit'])->name('fundraiser.profile.edit');
-
-    //Profile update routes
-    Route::patch('/admin/profile', [ProfileController::class, 'adminUpdate'])->name('admin.profile.update');
+    //Customer Profile Update Route
     Route::patch('/customer/profile', [ProfileController::class, 'customerUpdate'])->name('customer.profile.update');
 
+    //Customer Deposits Routes
+    Route::get('/user/create/deposit', [DepositController::class, 'createDeposit'])->name('user.create.deposit');
+    Route::post('/user/store/deposit', [DepositController::class, 'store'])->name('deposit.store');
 
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    //Customer Heplp Deposits Routes
+    Route::get('/user/create/help/deposit', [DepositController::class, 'createHelpDeposit'])->name('user.create.Helpdeposit');
+    Route::post('/user/store/helpdeposit', [DepositController::class, 'helpStore'])->name('helpdeposit.store');
+
+    //Customer Plans Routes
+    Route::get('/user/plans', [PlansController::class, 'userIndex'])->name('user.plan.index');
+
+    //Customer Tasks Route
+    Route::get('/user/tasks', [TasksController::class, 'userIndex'])->name('user.tasks.index');
+    Route::get('/user/do/{id}/task', [TasksController::class, 'doTask'])->name('user.do.task');
+    Route::post('/user/store/dotask', [TasksController::class, 'storetask'])->name('dotask.store');
+
+    //Customer Invest Routes
+    Route::get('/user/invest/{id}/', [PlansController::class, 'userInvest'])->name('user.invest');
+    Route::post('/user/store/invest', [PlansController::class, 'storeInvest'])->name('invest.store');
+
+    //Customer Luckydraw Routes
+    Route::get('/user/luckydraw', [LuckydrawController::class, 'create'])->name('user.luckydraw.create');
+    Route::post('/user/store/luckydraw', [LuckydrawController::class, 'storeLuckydraw'])->name('luckydraw.store');
+
+    //Customer Withdraw Routes
+    Route::get('/user/withdraw', [WithdrawController::class, 'create'])->name('user.withdraw.create');
+    Route::post('/user/store/withdraw', [WithdrawController::class, 'store'])->name('withdraw.store');
+
+    //Customer Invester Routes
+    Route::get('/investors/team', [DashboardController::class, 'team'])->middleware(['auth', 'verified'])->name('user.team');
 });
 
-
-// Customer Routes
-Route::get('/pickup/request', function () {
-    return view('customer.pickup-request.index');
-});
-Route::get('/donations', function () {
-    return view('customer.donations.index');
-});
-Route::get('/chat', function () {
-    return view('customer.chat.index');
-});
-Route::get('/fundraiser', function () {
-    return view('customer.fundraiser.index');
-});
-Route::get('/fundraiser/details', function () {
-    return view('customer.fundraiser.fundraiser-details');
-})->name('customer.view.fundraiser');
-
-Route::get('/donate', function () {
-    return view('customer.fundraiser.donate-now');
-});
-Route::get('customer/view/donor', function () {
-    return view('customer.donations.donar-details');
-})->name('customer.donor-view');
-
-
-//Admin Driver Routes 
-Route::get('/drivers', [DriverController::class, 'index'])->name('drivers.index');
-Route::get('/drivers/create', [DriverController::class, 'create'])->name('drivers.create');
-Route::post('/drivers', [DriverController::class, 'store'])->name('drivers.store');
-Route::get('/drivers/{id}/edit', [DriverController::class, 'edit'])->name('drivers.edit');
-Route::put('/drivers/{id}', [DriverController::class, 'update'])->name('drivers.update');
-Route::delete('/drivers/{id}',[DriverController::class, 'destroy'])->name('drivers.destroy');
-
-//View single Driver
-Route::get('/view-driver/{id}',[DriverController::class, 'viewDriver'])->name('view.driver');
-//search driver
-Route::get('/drivers/search', [DriverController::class, 'search'])->name('drivers.search');
-
-
-//Admin customer routes
-Route::get('/customers', [CustomerController::class, 'index'])->name('customer.index');
-Route::get('/customer/{id}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
-Route::put('/customer/{id}', [CustomerController::class, 'update'])->name('customer.update');
-Route::get('/view-customer/{id}',[CustomerController::class, 'viewCustomer'])->name('view.customer');
-Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
-//search driver
-Route::get('/customer/search', [CustomerController::class, 'search'])->name('customer.search');
-
-
-
-Route::get('/admin/donations', function () {
-    return view('admin.donations.index');
-});
-Route::get('admin/view/donor', function () {
-    return view('admin.donations.donar-details');
-})->name('admin.donor-view');
-
-Route::get('admin/fundraiser/donation', function () {
-    return view('admin.fundraiser-donation.index');
-})->name('admin.fundraiser.donations');
-
-Route::get('admin/charities', function () {
-    return view('admin.fundraiser-donation.view-charity');
-})->name('admin.view.fundraiser');
-
-Route::get('admin/view/charities', function () {
-    return view('admin.fundraiser-donation.charities');
-})->name('admin.charities');
-
-
-
-Route::get('admin/pickup/list', function () {
-    return view('admin.pickup-request.index');
-})->name('admin.pickup');
-
-Route::get('admin/chat', function () {
-    return view('admin.chat.index');
-})->name('admin.chat');
-
-
-//Fundraiser
-Route::get('/fundraiser/donations', function () {
-    return view('fundraiser.donations.index');
-});
-
-Route::get('fundraiser/view/donor', function () {
-    return view('fundraiser.donations.donar-details');
-})->name('fundraiser.donor-view');
-
-Route::get('fundraiser/chat', function () {
-    return view('fundraiser.chat.index');
-})->name('fundraiser.chat');
-
-
-
-//Test Routs
-Route::get('/test', function () {
-    return view('test');
-});
 
 require __DIR__.'/auth.php';

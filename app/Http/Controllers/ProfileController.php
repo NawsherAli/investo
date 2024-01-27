@@ -28,7 +28,7 @@ class ProfileController extends Controller
     public function customerEdit(Request $request): View
     {   
 
-        $userWithCustomer = User::with('customer')->find(auth()->id());
+        $userWithCustomer = User::find(auth()->id());
         return view('customer.setting.index', [
             'user' => $userWithCustomer,
         ]);
@@ -87,8 +87,6 @@ class ProfileController extends Controller
             'name' => 'required|string',
             'email' => 'required|email',
             'contact' => 'nullable|numeric|digits:11',
-            'e_transfer_no' => 'nullable|numeric',
-            'address' => 'nullable|string',
         ]);
 
         // Get the authenticated user
@@ -107,15 +105,7 @@ class ProfileController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->contact = $request->input('contact');
-        $user->e_transfer_no = $request->input('e_transfer_no');
         $user->save();
-
-        $customer =Customer::where('user_id','=',$user->id);
-       
-        $customer->update([
-        'address' =>$request->input('address'),
-         ]);
-
 
         return redirect()->back()->with('success', 'Profile updated successfully!');
         

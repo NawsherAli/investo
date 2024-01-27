@@ -19,8 +19,21 @@
 
 <body>
     <div class="maincontainer">
+
         <div class="items">
             <div class="logo"></div>
+            <x-auth-session-status class="mb-4 text-primary" :status="session('status')" />
+            @if(session('error'))
+        <div class="message-container bg-red-200 border-red-500 border-t-4 p-4 mb-4 rounded-lg">
+            <p class="text-red-700" style="background-color: red; padding: 10px; border-radius: 7px; color: white">{{ session('error') }}</p>
+        </div>
+        @endif
+        @if(session('success'))
+            <div id="successMessage" class="alert alert-success">
+                
+                <p style="background-color: lightgreen; padding: 10px; border-radius: 7px; color: green">{{ session('success') }}</p>
+            </div>
+        @endif
             <form  action="{{ route('login') }}" method="POST" class="form_inputs">
                 @csrf
                 <div class="email_container">
@@ -39,11 +52,11 @@
                 <span class="keep_in custom_font">
                     <input type="checkbox" id="keepLoggedInCheckbox">
                     <label for="keepLoggedInCheckbox" class="keep_in_label">Keep logged in</label>
-                    <span class="forget custon_font"><a href="">forget password?</a></span>
+                    <span class="forget custon_font"><a href="{{ route('password.request') }}">forget password?</a></span>
                 </span>
                 
             </form>
-               <p class="create_acc custom_font"><a href="sigunup.html">Create Account</a>
+               <p class="create_acc custom_font"><a href="{{ route('register') }}">Create Account</a>
                </p>
             </div>
         </div>

@@ -46,7 +46,7 @@
                     <div><span style="color: red">{{ $errors->first('password_confirmation') }}</span></div>
                 </div>
                 <div class="referal_container">
-                    <input type="number" placeholder="Please enter your referal code" class="referal_code_input" name="referal_code">
+                    <input type="text" placeholder="Please enter your referal code" class="referal_code_input" name="referal_by" value="{{ request('referral_code') }}">
                     <div><span style="color: red">{{ $errors->first('referal_code') }}</span></div>
                 </div>
                 <button type="submit" class="btn">Create Account</button>

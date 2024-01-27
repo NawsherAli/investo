@@ -9,7 +9,7 @@
         <ul class="pagination justify-content-end">
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())
-                <li class="page-item previous" style="background-color: white; border: 1px solid #219653 " aria-disabled="true" aria-label="@lang('pagination.previous')"><a class=" " href="#" style="background-color: white ; border: none; color: #219653 ">Previous</a></li>
+                <li class="page-item previous" style="background-color: white; border: 1px solid #rgba(0, 0, 50, 0.9) " aria-disabled="true" aria-label="@lang('pagination.previous')"><a class=" " href="#" style="background-color: white ; border: none; color: rgba(0, 0, 50, 0.9) ">Previous</a></li>
                 <!-- <li class="page-item disabled " aria-disabled="true" aria-label="@lang('pagination.previous')">
                     <span aria-hidden="true">Previous</span>
                 </li> -->
@@ -17,8 +17,8 @@
                <!--  <li class="page-item">
                     <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')" class="page-link">Previous</a>
                 </li> -->
-                <li class="page-item previous" style="background-color: #219653 ;" aria-disabled="true" aria-label="@lang('pagination.previous')">
-                    <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')" style="background-color: #219653 ; border: none; color: white">Previous</a>
+                <li class="page-item previous" style="background-color: rgba(0, 0, 50, 0.9) ;" aria-disabled="true" aria-label="@lang('pagination.previous')">
+                    <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')" style="background-color: rgba(0, 0, 50, 0.9); border: none; color: white">Previous</a>
                 </li>
             @endif
 
@@ -33,9 +33,9 @@
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
-                            <li class="active page-item" aria-current="page" style="background-color: white; width: 40px; height: 40px"><span style="background-color: #219653;border-radius: 100%; border: none">{{ $page }}</span></li>
+                            <li class="active page-item" aria-current="page" style="background-color: white; width: 40px; height: 40px"><span style="background-color: rgba(0, 0, 50, 0.9);border-radius: 100%; border: none">{{ $page }}</span></li>
                         @else
-                            <li style="background-color: white; border: none;"><a href="{{ $url }}" style="background-color: white; border: none; color: #219653" >{{ $page }}</a></li>
+                            <li style="background-color: white; border: none;"><a href="{{ $url }}" style="background-color: white; border: none; color: rgba(0, 0, 50, 0.9)" >{{ $page }}</a></li>
                         @endif
                     @endforeach
                 @endif
@@ -44,12 +44,12 @@
             {{-- Next Page Link --}}
             @if ($paginator->hasMorePages())
                 
-                <li class="page-item previous" style="background-color: #219653; border: 1px solid #219653;" aria-disabled="true" aria-label="@lang('pagination.previous')"><a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')" style="background-color:#219653 ; border: none; color: white; border: none;">Next</a></li>
+                <li class="page-item previous" style="background-color: rgba(0, 0, 50, 0.9); border: 1px solid rgba(0, 0, 50, 0.9);" aria-disabled="true" aria-label="@lang('pagination.previous')"><a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')" style="background-color:rgba(0, 0, 50, 0.9) ; border: none; color: white; border: none;">Next</a></li>
             @else
                 <!-- <li class=" page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')" style="background-color: white; border: 1px solid 219653">
                     <span class="page-item" aria-hidden="true" style="background-color: white; border: none; color: 219653">Next</span>
                 </li> -->
-                <li class="page-item previous" style="background-color: white; border: 1px solid #219653;" aria-disabled="true" aria-label="@lang('pagination.previous')"><a  rel="next" aria-label="@lang('pagination.next')" style="background-color:white ; border: none; color: #219653 ; border: none;">Next</a></li>
+                <li class="page-item previous" style="background-color: white; border: 1px solid #rgba(0, 0, 50, 0.9);" aria-disabled="true" aria-label="@lang('pagination.previous')"><a  rel="next" aria-label="@lang('pagination.next')" style="background-color:white ; border: none; color: rgba(0, 0, 50, 0.9) ; border: none;">Next</a></li>
             @endif
         </ul>
     </nav>

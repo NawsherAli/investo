@@ -1,0 +1,358 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    padding-bottom: 80px;
+}
+
+.header {
+
+    background-color: linear-gradient(to right,#ff004f, #ff004f, #0b325c); 
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    
+}
+
+
+.lucky_draw_section {
+    width: 100%; 
+    max-width: 800px; 
+    margin: 20px auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    
+}
+
+.heading, .help_needy_people, .lucky_draw_for_everyone {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.heading p, .help_needy_people p, .lucky_draw_for_everyone p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+    margin: 0;
+    padding: 20px;
+    cursor: pointer;
+}
+.heading p,.help_needy_people p{
+    color: white;
+}
+#helpNote {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 8px;
+    display: none;
+}
+
+#helpNote p {
+    font-size: 1rem;
+    margin: 0;
+    padding: 10px;
+}
+
+#helpNote button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+#helpNote button:hover {
+    background-color: #45a049;
+    cursor: pointer;
+}
+
+.lucky_draw_for_everyone {
+    width: 100%;
+    max-width: 800px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px; 
+    
+    margin: 10px;
+    
+    
+}
+
+.lucky_draw_for_everyone h1 {
+    color:black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.lucky_draw_for_everyone h2 {
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 10px; 
+    
+}
+
+.lucky_draw_for_everyone li {
+    list-style: disc;
+    padding: 4px;
+    font-size: 1rem;
+    color: black;
+    font-weight: bold;
+    list-style-type: none;
+}
+
+.participation-details, #participantDetailsSection {
+    display: none;
+    width: 100%;
+    margin: 20px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button[type="button"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button[type="button"]:hover {
+    background-color: #45a049;
+}
+
+#participantDetails {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* ******************************************************footer*******************************************/
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+
+.items li i{
+    color: white;
+}
+.luckydraw_icon a i{
+    color: #ff004f;
+}
+
+
+.items li {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    margin-right: 20px; 
+    padding:10px;
+    font-weight: bold;
+}
+.items li span{
+    font-size: 0.8rem;
+}
+
+.items a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.check-luck-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.check-luck-button-submit{
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.check-luck-button:hover {
+    background-color: #2980b9;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    form {
+        width: 100%;
+        padding: 0px;
+    }
+
+    input,
+    select {
+        width: calc(100% - 20px);
+        box-sizing: border-box;
+    }
+
+    .lucky_draw_for_everyone {
+        margin: 0px;
+    }
+
+    .lucky_draw_for_everyone h1 {
+        font-size: 1.5rem;
+    }
+
+    .lucky_draw_for_everyone h2 {
+        font-size: 1.2rem;
+    }
+    /* ***********************footer********************************* */
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        padding: 2px;
+        width: 100%;
+        height: 50px;
+    }
+    
+    .items ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        margin-top: auto;
+        margin-right: 0px;
+        padding-left: 0px;
+    }
+    
+    .items li {
+        text-decoration: none;
+        text-align: center;
+        margin-bottom: 2px; 
+        margin-right: 0px;
+       
+    }
+    
+    .items li span {
+        font-size: 0.8rem;
+    }
+    
+    .items a {
+        text-decoration: none;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .items li a {
+        color:white;
+        font-size: 1rem;
+    }
+
+   .lucky_draw_for_everyone  .badge{
+    background-color: red;
+     }
+}

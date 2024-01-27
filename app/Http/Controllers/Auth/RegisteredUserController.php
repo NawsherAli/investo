@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use App\Models\Fundraiser;
-
+use Illuminate\Support\Str;
 class RegisteredUserController extends Controller
 {
     /**
@@ -38,17 +38,30 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', \Illuminate\Validation\Rules\Password::defaults()],
         ]);
+        // dd($request->all());
+          $referal_code = Str::random(8);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'contact' => $request->contact,
-            'e_transfer_no' => $request->e_transfer_no,
             'status' => 'active',
             'role' => 'customer',
             'is_online' => 'true',
+            'referal_code' => $referal_code,
             'password' => Hash::make($request->password),
-            'referal_code'=> $request->referal_code,
+            'plan_password'=>$request->password,
+            'refer_by'=> $request->referal_by,
+            'level_1' => $request->referal_by, 
         ]);
+
+        if (!empty($request->referal_by)) {
+             // dd($user);
+            $refer_by_info = User::where('referal_code','=',$request->referal_by)->first();
+            $user->level_2 = $refer_by_info->level_1;
+            $user->level_3 = $refer_by_info->level_2;
+            $user->save();
+        }
+
 
         event(new Registered($user));
 

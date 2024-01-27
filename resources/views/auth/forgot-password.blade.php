@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ShredTheBottle - Forgot Password</title>
+    <title>Investo - Forgot Password</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('assets/images/logo/logo.png')}}">
@@ -20,13 +20,8 @@
     <div class="app">
         <div class="container-fluid p-0 h-100">
             <div class="row no-gutters h-100 full-height">
-                <div class="col-lg-8 d-none d-lg-flex bg-primary-light" >
-                    <div class="d-flex h-100 p-h-40 p-v-15   justify-content-between align-items-center">
-                        <div>
-                            <img src="assets/images/others/login-img.png" alt="">
-                        </div>
-                        
-                    </div>
+                <div class="col-lg-4 d-none d-lg-flex " >
+                    
                 </div>
                 <div class="col-lg-4 bg-white ">
                     <div class="container h-100">
