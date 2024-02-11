@@ -83,7 +83,7 @@
                                         <th scope="col">Task Image</th>
                                 </tr>
                                 <tr>
-                                        <td><img src="{{ asset('storage/' . $tasks->image) }}" alt=""></td>
+                                        <td><img src="{{ asset('assets/images/tasks_pictures/' . $tasks->image) }}" alt=""></td>
                                     </tr>
                                 </thead>
                             </table>

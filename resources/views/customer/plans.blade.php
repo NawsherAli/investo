@@ -1,10 +1,10 @@
 <?php  use Carbon\Carbon; ?>
 @extends('customer.layouts.layout')
 @section('title')
-	Investo - Plans
+	Plans
 @endsection
 @section('contents')
-
+<link rel="stylesheet" href="{{asset('assets/css/footer.css')}}">
 <div class="all_plans">
     <?php foreach($plans as $plan){?>
         <div class="plan"  >
@@ -85,6 +85,49 @@
             </div>
         </div>
       <?php   } ?>
+</div>      
+<div class="footer1" style="z-index: 10">
+        <div class="items1">
+            <ul>
+                <li  class="active">
+                    <a href="{{route('user.plan.index')}}">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Plans</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.tasks.index')}}">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tasks</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('investors.dashboard')}}">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.create.deposit')}}">
+                        <i class="fas fa-hand-holding-usd deposit-icon"></i>
+                        <span>Deposit</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.luckydraw.create')}}">
+                        <i class="fas fa-gift"></i>
+                        <span>Lucky <span>Draw</span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.withdraw.create')}}">
+                        <i class="fas fa-money-bill-wave withdraw-icon"></i>
+                        <span>withdraw</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
          <!-- *********************************************************************************** -->
        <!--  <div class="plan">
             <div class="top-left">Silver</div>

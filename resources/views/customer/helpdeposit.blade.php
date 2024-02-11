@@ -1,6 +1,6 @@
 @extends('customer.layouts.layout')
 @section('title')
-    Investo - Deposit
+    Help Deposit
 @endsection
 @section('contents')
 <link rel="stylesheet" href="{{asset('assets/css/withdraw.css')}}">
@@ -60,7 +60,7 @@
                 <button id="addImageButton" onclick="triggerFileInput()">Add Image</button>
                 
          <form method="POST" action="{{route('helpdeposit.store')}}"  enctype="multipart/form-data" id="deposit-form">
-        @csrf
+            @csrf
                 <input type="file" id="fileInput" style="display: none;" accept="image/*" onchange="handleImageSelection()" form="deposit-form" name="image">
                 <button type="submit" id="uploadImageButton"  style="margin-top: 20px">Save</button>
                  <!-- <button type="submit" id="uploadImageButton" disabled>Save</button> -->
@@ -79,6 +79,48 @@
         
     </div>
 </div>
+    <div class="footer1" style="z-index: 10">
+        <div class="items1">
+            <ul>
+                <li class="task_icon">
+                    <a href="{{route('user.plan.index')}}">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Plans</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.tasks.index')}}">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tasks</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="{{route('investors.dashboard')}}">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li class="active">
+                <li>
+                    <a href="{{route('user.create.deposit')}}">
+                        <i class="fas fa-hand-holding-usd deposit-icon"></i>
+                        <span>Deposit</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.luckydraw.create')}}">
+                        <i class="fas fa-gift"></i>
+                        <span>Lucky <span>Draw</span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.withdraw.create')}}">
+                        <i class="fas fa-money-bill-wave withdraw-icon"></i>
+                        <span>withdraw</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 <script>
     function showWithdrawForm() {
         document.getElementById('withdrawOptions').style.display = 'block';

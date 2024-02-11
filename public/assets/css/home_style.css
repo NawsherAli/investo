@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     padding-bottom: 80px; 
-    background-color: black;
+    background-color:  rgb(19, 18,18) ;
 }
 header {
    
@@ -45,16 +45,15 @@ header {
     background-size: cover;
 }
 /* *********************************************************second container********************************************************** */
-.second_container{
+.second_container {
     margin-left: 10px;
-    
     height: 80px;
     width: 97%;
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-  
-    background:linear-gradient(rgba(0,0,0,0.6),#ff004f);
+    /* Use linear-gradient instead of linear-gradiant */
+    background: linear-gradient(to left, #ff004f, #ff004f, #47596b); 
     border-radius: 8px;
 }
 
@@ -72,6 +71,7 @@ header {
     color: white;
     margin-left: 12px;
     margin-top: 0px;
+
 }
 
 /* **************************************************other items**********************************************/
@@ -100,7 +100,8 @@ header {
 }
 /* ********************** */
 .total_withdraw {
-    background-color: #ff004f;
+    /*background-color: #ff004f;*/
+    background:linear-gradient(to left, #163553, #47596b, #47596b); 
     display: flex;
     flex-direction: column;
 }
@@ -117,7 +118,8 @@ header {
 }
 /* *************************** */
 .total_deposit{
-    background-color:#ff004f;
+    /*background-color:#ff004f;*/
+     background:linear-gradient(to left, #163553, #47596b, #47596b); 
     display: flex;
     flex-direction: column;
 }
@@ -127,7 +129,8 @@ header {
 }
 /* ****************************** */
 .total_invest{
-    background-color:rgb(211, 159, 63)  ;
+    /*background-color:rgb(211, 159, 63)  ;*/
+    background:linear-gradient(to left, rgb(45, 124,45), rgb(45, 124,45), rgb(45 ,124 , 45));
     display: flex;
     flex-direction: column;
 }
@@ -140,7 +143,8 @@ header {
 /* ************************************/
 
 .current_invest{
-    background-color:rgb(211, 159, 63) ;
+    /*background-color:rgb(211, 159, 63) ;*/
+    background:linear-gradient(to left, rgb(45, 124,45), rgb(45, 124,45), rgb(45 ,124 , 45));
     display: flex;
     flex-direction: column;
 }
@@ -267,7 +271,7 @@ header {
     margin-right: 10px;
 }
 /* *****************************************footer**************************************************/
-.footer {
+.footer1 {
     position: fixed;
     bottom: 0;
     display: flex;
@@ -279,28 +283,28 @@ header {
     background-color: rgba(173, 216, 230, 0.2)
 }
 
-.items ul {
+.items1 ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
 }
 
-.items li {
+.items1 li {
     margin-right: 20px;
     color: white;
     margin-left: 12px;
     font-size: 2rem;
 }
-.items li i{
+.items1 li i{
     color: white;
 }
-.home_icon a i{
+.active a i{
     color: #ff004f;
 }
 
 
-.items li {
+.items1 li {
     text-decoration: none;
     color: white;
     font-size: 1remrem;
@@ -308,11 +312,11 @@ header {
     margin-right: 20px; 
     padding:10px
 }
-.items li span{
+.items1 li span{
     font-size: 0.8rem;
 }
 
-.items a {
+.items1 a {
     text-decoration: none;
     color: white;
     display: flex;
@@ -413,7 +417,7 @@ header {
         padding-bottom: 100px;
     }
 
-    .footer {
+    .footer1 {
         position: fixed;
         bottom: 0;
         display: flex;
@@ -423,7 +427,7 @@ header {
         height: 50px;
     }
     
-    .items ul {
+    .items1 ul {
         list-style: none;
         margin: 0;
         padding: 0;
@@ -433,18 +437,18 @@ header {
         padding-left: 0px;
     }
     
-    .items li {
+    .items1 li {
         text-decoration: none;
         text-align: center;
         margin-bottom: 2px; 
         margin-right: 0px;
     }
     
-    .items li span {
+    .items1 li span {
         font-size: 0.8rem;
     }
     
-    .items a {
+    .items1 a {
         text-decoration: none;
         color: white;
         display: flex;
@@ -452,7 +456,7 @@ header {
         align-items: center;
     }
     
-    .items li a {
+    .items1 li a {
         color:white;
         font-size: 1rem;
     }

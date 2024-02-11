@@ -1,5 +1,5 @@
     
-    <div class="footer" style="z-index: 10">
+    <!-- <div class="footer" style="z-index: 10">
         <div class="items">
             <ul>
                 <li class="task_icon">
@@ -40,7 +40,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
   
 </body>
 <script>

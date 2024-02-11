@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Investo - Login</title>
+    <title>Cash Flix - Login</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('assets/images/logo/logo.png')}}">
@@ -37,6 +37,8 @@
             <form  action="{{ route('login') }}" method="POST" class="form_inputs">
                 @csrf
                 <div class="email_container">
+                    <h1 style="text-align: center;"><span style="color: #ff004f">CASH</span> <span style="color: #007bff">FLIX</span>  </h1>
+                    <p style="text-align: center; color: white">Fastest growing system</p>
                     <input type="email" placeholder="Please enter your email" class="email_input" required name="email">
                     <div><span style="color: red">{{ $errors->first('email') }}</span></div>
                 </div>
@@ -56,7 +58,7 @@
                 </span>
                 
             </form>
-               <p class="create_acc custom_font"><a href="{{ route('register') }}">Create Account</a>
+               <p class="create_acc custom_font"><a href="{{ route('register') }}" style="color: white">Create Account</a>
                </p>
             </div>
         </div>

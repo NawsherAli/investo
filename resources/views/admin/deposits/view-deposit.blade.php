@@ -83,7 +83,7 @@
                                         <th scope="col">Transaction Image</th>
                                 </tr>
                                 <tr>
-                                        <td><img src="{{ asset('storage/' . $deposit->image) }}" alt=""></td>
+                                        <td><img src="{{ asset('assets/images/transaction_pictures/' . $deposit->image) }}" alt=""></td>
                                     </tr>
                                 </thead>
                             </table>

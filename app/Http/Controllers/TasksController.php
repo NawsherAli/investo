@@ -6,27 +6,65 @@ use Illuminate\Http\Request;
 use App\Models\UserTask; 
 use App\Models\Task; 
 use App\Models\User; 
-// use App\Models\UserTask; 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+
 class TasksController extends Controller
 {
      public function index()
     {
-    	// $users = User::all();
+    	 ///Task Status Update
+            $tasks = UserTask::where('status', 'pending')->get();
+            // dd($tasks);
+            foreach ($tasks as $task) {
+                $createdAt = Carbon::parse($task->created_at);
+                $differenceInMinutes = $createdAt->diffInMinutes(Carbon::now());
+
+                if ($differenceInMinutes >= 3) {
+                    $task->update(['status' => 'completed']);
+                }
+            }
+
+        // $users = User::all();
          $tasks = Task::paginate(2);
     	// $users = User::where('role', '=', 'customer')->paginate(2);
         return view('admin.tasks.index',compact('tasks'));
     }
      public function userTaskindex()
     {
+       ///Task Status Update
+        $tasks = UserTask::where('status', 'pending')->get();
+        // dd($tasks);
+        foreach ($tasks as $task) {
+            $createdAt = Carbon::parse($task->created_at);
+            $differenceInMinutes = $createdAt->diffInMinutes(Carbon::now());
+
+            if ($differenceInMinutes >= 3) {
+                $task->update(['status' => 'completed']);
+            }
+        }
+
         // $users = User::all();
          $tasks = UserTask::with('user','task')->orderBy('created_at', 'desc')
-    ->paginate(10);
+        ->paginate(10);
         // $users = User::where('role', '=', 'customer')->paginate(2);
         return view('admin.tasks.user-tasks-index',compact('tasks'));
     }
      public function userIndex()
     {
+        ///Task Status Update
+            $tasks = UserTask::where('status', 'pending')->get();
+            // dd($tasks);
+            foreach ($tasks as $task) {
+                $createdAt = Carbon::parse($task->created_at);
+                $differenceInMinutes = $createdAt->diffInMinutes(Carbon::now());
+
+                if ($differenceInMinutes >= 3) {
+                    $task->update(['status' => 'completed']);
+                }
+            }
+
+
         // $users = User::all();
          $tasks = Task::where('status','=','active')->get();
           $user_id = Auth::user()->id;
@@ -50,7 +88,14 @@ class TasksController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $path = $request->file('image')->store('task_pictures','public');
+        // $path = $request->file('image')->store('task_pictures','public');
+         if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/images/tasks_pictures'), $imageName);
+            $path = $imageName;
+        }
+
         $id = Auth::user()->id;
         $task = UserTask::create([
             'user_id'=>$id,

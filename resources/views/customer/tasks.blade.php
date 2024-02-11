@@ -1,17 +1,18 @@
 @extends('customer.layouts.layout')
 @section('title')
-	Investo - Tasks
+	Tasks
 @endsection
 @section('contents')
+<link rel="stylesheet" href="{{asset('assets/css/footer.css')}}">
 <h2 style="color: white; text-align: center;">All Tasks</h2>
-<div class="all_plans" style=" ">
+<div class="all_plans"  style="z-index: 1">
         <?php 
             foreach($tasks as $task){ ?>
-        <div class="plan" style="height: 35vh">
+        <div class="plan" style="height: auto" >
             <div class="top-left">{{$task->title}}</div>
             <div class="top-right"> </div>
             <h2 style="color: white">Description</h2>
-            <p style="color: white">{{$task->description}}</p>
+            <p style="color: white">{{substr($task->description, 0, 98) }}</p>
             <div class="invest_button">
                 <div class="cut-out"></div>
         <?php 
@@ -74,5 +75,46 @@
         </div> -->
         <!-- *************************************************************************************** -->
     </div>
-
+    <div class="footer1" style="z-index: 10">
+        <div class="items1">
+            <ul>
+                <li class="task_icon">
+                    <a href="{{route('user.plan.index')}}">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Plans</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="{{route('user.tasks.index')}}">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tasks</span>
+                    </a>
+                </li>
+                <li  >
+                    <a href="{{route('investors.dashboard')}}">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.create.deposit')}}">
+                        <i class="fas fa-hand-holding-usd deposit-icon"></i>
+                        <span>Deposit</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.luckydraw.create')}}">
+                        <i class="fas fa-gift"></i>
+                        <span>Lucky <span>Draw</span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.withdraw.create')}}">
+                        <i class="fas fa-money-bill-wave withdraw-icon"></i>
+                        <span>withdraw</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 @endsection('contents')

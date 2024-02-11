@@ -13,7 +13,7 @@ class PlansController extends Controller
     public function index()
     {
     	// $users = User::all();
-         $plans = Plan::paginate(2);
+         $plans = Plan::paginate(10);
     	// $users = User::where('role', '=', 'customer')->paginate(2);
         return view('admin.plans.index',compact('plans'));
     }
@@ -30,7 +30,7 @@ class PlansController extends Controller
     public function userIndex()
     {
         // $users = User::all();
-        $plans = Plan::all();
+        $plans = Plan::where('status','active')->get();
         $user_id = Auth::user()->id;
         $user_plans = Invest::where('user_id','=',$user_id)->get();
         // $users = User::where('role', '=', 'customer')->paginate(2);

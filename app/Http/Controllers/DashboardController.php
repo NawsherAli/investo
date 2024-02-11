@@ -59,7 +59,17 @@ class DashboardController extends Controller
 
 
     public function adminindex(){
-            
+            ///Task Status Update
+            $tasks = UserTask::where('status', 'pending')->get();
+            // dd($tasks);
+            foreach ($tasks as $task) {
+                $createdAt = Carbon::parse($task->created_at);
+                $differenceInMinutes = $createdAt->diffInMinutes(Carbon::now());
+
+                if ($differenceInMinutes >= 3) {
+                    $task->update(['status' => 'completed']);
+                }
+            }
             ///Investments Update code starts
                 $investments = Invest::where('status', 'active')->get();
                
@@ -95,21 +105,33 @@ class DashboardController extends Controller
             ///Investments Update code end
 
 
-        $alldeposits = Deposit::all()->sum('amount');
-        $allInvests = Invest::all()->sum('amount');
-        $tasks = UserTask::all();
-        $alltasks = count($tasks);
-        $deposits= Deposit::with('user')->orderBy('created_at', 'desc')
-    ->paginate(10);
-        $withdraws= Withdraw::with('user')->orderBy('created_at', 'desc')
-    ->paginate(10);
-        // investmentsUpdate();
-        return view('admin.dashboard',compact('alldeposits','allInvests','deposits','withdraws','alltasks'));
+            $alldeposits = Deposit::all()->sum('amount');
+            $allInvests = Invest::all()->sum('amount');
+            $tasks = UserTask::all();
+            $alltasks = count($tasks);
+            $deposits= Deposit::with('user')->orderBy('created_at', 'desc')
+        ->paginate(10);
+            $withdraws= Withdraw::with('user')->orderBy('created_at', 'desc')
+        ->paginate(10);
+            // investmentsUpdate();
+            return view('admin.dashboard',compact('alldeposits','allInvests','deposits','withdraws','alltasks'));
     }
+
+    
     public function index()
     {	
 
+         ///Task Status Update
+            $tasks = UserTask::where('status', 'pending')->get();
+            // dd($tasks);
+            foreach ($tasks as $task) {
+                $createdAt = Carbon::parse($task->created_at);
+                $differenceInMinutes = $createdAt->diffInMinutes(Carbon::now());
 
+                if ($differenceInMinutes >= 3) {
+                    $task->update(['status' => 'completed']);
+                }
+            }
         ///Investments Update code starts
         $investments = Invest::where('status', 'active')->get();
        

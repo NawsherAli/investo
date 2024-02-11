@@ -35,7 +35,14 @@ class DepositController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $path = $request->file('image')->store('transaction_pictures','public');
+        // $path = $request->file('image')->store('transaction_pictures','public');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/images/transaction_pictures'), $imageName);
+            $path = $imageName;
+        }
+
         $id = Auth::user()->id;
         $task = Deposit::create([
         	'user_id'=>$id,

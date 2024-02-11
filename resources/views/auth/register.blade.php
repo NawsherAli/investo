@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Investo - SignUp</title>
+    <title>Cash Flix - SignUp</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('assets/images/logo/logo.png')}}">
@@ -19,7 +19,10 @@
 <body>
     <div class="maincontainer" >
         <div class="items">
+            
             <div class="logo"></div>
+            <h1 style="text-align: center;"><span style="color: #ff004f">CASH</span> <span style="color: #007bff">FLIX</span>  </h1>
+            <p style="text-align: center; color: white">Fastest growing system</p>
             <form method="POST" action="{{ route('register.personal') }}" class="form_inputs">
                 @csrf  
                 <div class="input-container">
@@ -57,7 +60,7 @@
                 </span>
                 
             </form>
-               <p class="create_acc custom_font"><a href="{{ route('login') }}" class="text-primary" >Already have an account</a></p>
+               <p class="create_acc custom_font"><a href="{{ route('login') }}" class="text-primary" style="color: white">Already have an account</a></p>
             </div>
         </div>
     </div>

@@ -1,9 +1,10 @@
 @extends('customer.layouts.layout')
 @section('title')
-	Investo -withdraw
+	Withdraw
 @endsection
 @section('contents')
 <link rel="stylesheet" href="{{asset('assets/css/withdraw.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/footer.css')}}">
 <div class="container">
     <header>
         <h1>Account Balance {{Auth::user()->current_balance}} PKR</h1>
@@ -34,7 +35,8 @@
         
         <p>Total Balance: {{Auth::user()->current_balance}}pkr</p>
         <p>Minimum Withdraw: {{$withdrawsinfos->minimum_withdraw}}pkr</p>
-        <p>Commission Cut: <span id="commissionAmount"><?php echo $withdrawsinfos->commission?></span>%</p>
+         <p>Maximum Withdraw: 50000 pkr</p>
+        <p>Withdrawl Fee: <span id="commissionAmount"><?php echo $withdrawsinfos->commission?></span>%</p>
 
         <!-- <p>Withdraw After Commission Cut: <span id="withdrawalAmount">0.00</span>pkr</p> -->
         <button id="withdrawBtn" onclick="showWithdrawForm()">Withdraw Now</button>
@@ -47,7 +49,7 @@
             <input type="text" id="real_name" name="real_name" required>
 
             <label for="amount">Amount:</label>
-            <input type="number" id="amount" name="amount" required placeholder="Enter amount" oninput="updateAmountAfter()" min="{{$withdrawsinfos->minimum_withdraw}}">
+            <input type="number" id="amount" name="amount" required placeholder="Enter amount" oninput="updateAmountAfter()" min="{{$withdrawsinfos->minimum_withdraw}}" max="50000">
             <label for="amount">Amount After Withdraw:</label>
             <input type="text" id="amount_after" name="amount_after" required Value="">
 
@@ -116,6 +118,48 @@
         @endforeach
     </div>
 </div>
+    <div class="footer1" style="z-index: 10">
+        <div class="items1">
+            <ul>
+                <li class="task_icon">
+                    <a href="{{route('user.plan.index')}}">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Plans</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.tasks.index')}}">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tasks</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="{{route('investors.dashboard')}}">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.create.deposit')}}">
+                        <i class="fas fa-hand-holding-usd deposit-icon"></i>
+                        <span>Deposit</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('user.luckydraw.create')}}">
+                        <i class="fas fa-gift"></i>
+                        <span>Lucky <span>Draw</span></span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="{{route('user.withdraw.create')}}">
+                        <i class="fas fa-money-bill-wave withdraw-icon"></i>
+                        <span>withdraw</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 <script>
  
     function updateAmountAfter() {

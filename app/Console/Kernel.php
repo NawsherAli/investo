@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('investments:check-status')->everyMinute();
+        $schedule->command('task:updateStatus')->everyMinute()->withoutOverlapping();
     }
 
     /**

@@ -21,7 +21,7 @@
    
 </div>
 <div class="pb-3 " style="border-top:2px solid #219653;"></div>
-<div class="row flex-column d-none d-sm-block">
+<div class="row flex-column">
     <div class="table-responsive">
         <table class="table table-sm text-center">
             <thead>

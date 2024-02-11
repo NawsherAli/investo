@@ -10,18 +10,18 @@
             <input type="text" class="form-control" placeholder="Search" name="search">
             <i class="suffix-icon anticon anticon-search"></i>
         </div> -->
-        <form id="searchForm" method="GET" action="{{ route('deposit.search') }}">
+       <!--  <form id="searchForm" method="GET" action="{{ route('deposit.search') }}">
             <div class="input-affix  ">
             <input type="text" class="form-control" placeholder="Search by transaction no" name="search">
                 <i class="suffix-icon anticon anticon-search" id="searchIcon"></i>
-            </div>
+            </div> -->
             <!-- <button type="submit" class="btn btn-primary">Search</button> -->
-        </form>
+        <!-- </form> -->
     </div>
    
 </div>
 <div class="pb-3 " style="border-top:2px solid #219653;"></div>
-<div class="row flex-column d-none d-sm-block">
+<div class="row flex-column">
     <div class="table-responsive">
         <table class="table table-sm text-center">
             <thead>
